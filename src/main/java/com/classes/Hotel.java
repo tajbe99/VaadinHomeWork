@@ -1,7 +1,10 @@
 package com.classes;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 
 @SuppressWarnings("serial")
 public class Hotel implements Serializable, Cloneable {
@@ -12,12 +15,12 @@ public class Hotel implements Serializable, Cloneable {
 
 	private String address = "";
 
-	private String rating;
+	private int rating;
 
-	private LocalDate operatesFrom;
+	private Long operatesFrom;
 
 	private HotelCategory category;
-	
+
 	private String url;
 
 	private String description;
@@ -73,21 +76,23 @@ public class Hotel implements Serializable, Cloneable {
 		this.address = address;
 	}
 
+
 	public String getRating() {
-		return rating;
+		return String.valueOf(rating);
 	}
 
 	public void setRating(String rating) {
-		this.rating = rating;
+		this.rating = Integer.parseInt(rating);
 	}
 
-	public LocalDate getOperatesFrom() {
-		return operatesFrom;
-	}
 
-	public void setOperatesFrom(LocalDate operatesFrom) {
-		this.operatesFrom = operatesFrom;
-	}
+    public Long getOperatesFrom() {
+        return operatesFrom;
+    }
+
+    public void setOperatesFrom(Long operatesFrom) {
+        this.operatesFrom = operatesFrom;
+    }
 
 	public HotelCategory getCategory() {
 		return category;
@@ -95,7 +100,7 @@ public class Hotel implements Serializable, Cloneable {
 
 	public void setCategory(HotelCategory category) {
 		this.category = category;
-	}	
+	}
 
 	public String getUrl() {
 		return url;
@@ -105,7 +110,7 @@ public class Hotel implements Serializable, Cloneable {
 		this.url = url;
 	}
 
-	public Hotel(Long id, String name, String address, String rating, LocalDate operatesFrom, HotelCategory category, String url, String description) {
+	public Hotel(long id, String name, String address, int rating, Long operatesFrom, HotelCategory category, String url, String description) {
 		super();
 		this.id = id;
 		this.name = name;
