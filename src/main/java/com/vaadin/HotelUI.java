@@ -1,5 +1,6 @@
 package com.vaadin;
 
+import javax.servlet.annotation.WebListener;
 import javax.servlet.annotation.WebServlet;
 
 import com.classes.Category;
@@ -11,7 +12,6 @@ import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.shared.ui.ValueChangeMode;
 import com.vaadin.ui.*;
 import com.vaadin.ui.renderers.*;
@@ -19,9 +19,7 @@ import com.vaadin.ui.themes.ValoTheme;
 import elemental.json.Json;
 import elemental.json.JsonValue;
 
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.List;
 
 /**
@@ -53,7 +51,6 @@ public class HotelUI extends UI {
     final MenuBar bar = new MenuBar();
     final VerticalLayout categoryView = new VerticalLayout();
     final HorizontalLayout categoryGridEditorView = new HorizontalLayout();
-
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
